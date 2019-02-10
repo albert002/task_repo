@@ -14,18 +14,18 @@ class UserList extends Component{
      <Text>{item.name}</Text>
    </View>
  );
- render() {
-  const { users } = this.props;
-  return (
-    <FlatList
-      styles={styles.container}
-      data={users}
-      renderItem={this.renderItem}
-    />
-  );
+   render() {
+    const { users } = this.props;
+    return (
+      <FlatList
+        styles={styles.container}
+        data={users}
+        renderItem={this.renderItem}
+      />
+    );
+  }
 }
-}
-}
+
 
 const styles = StyleSheet.create({
   container: {

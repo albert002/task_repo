@@ -15,8 +15,8 @@ import { Provider, connect } from 'react-redux';
 //import axios from 'axios';
 //import axiosMiddleware from 'redux-axios-middleware';
 
-import reducer from './src/reducers/user';
-import UserList from './src/actions/saveUser'
+import reducer from './src/store/reducers/user';
+import UserList from './src/store/actions/saveUser'
 
 const store = createStore(reducer);
 
@@ -30,8 +30,8 @@ import Users from './src/screens/Users';
 
 //Register Screens
 //export default () =>{
-Navigation.registerComponent("LandingScreen", () => LandingScreen,store,Provider);
-Navigation.registerComponent("Users", () => Users);
+Navigation.registerComponent("LandingScreen", (store) => LandingScreen,store,Provider);
+Navigation.registerComponent("Users", () => Users,store,Provider);
 
 Navigation.startTabBasedApp({
   tabs: [

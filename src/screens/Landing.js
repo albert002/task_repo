@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View,Button } from 'react-native';
 import InputComponent from '../components/InputComponent'
+import { Provider, connect } from 'react-redux';
 
 class Landing extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
       inputFields:""
     }
@@ -34,6 +35,7 @@ class Landing extends Component {
          {
            this.state.inputFields === "clicked"?
              <InputComponent/>
+             console.log(store)
            :
            <Text>Press add to start</Text>
          }
@@ -43,4 +45,12 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+
+const mapStateToProps = (state) => {
+    return {
+        type: 'SET_USER'
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Landing)
