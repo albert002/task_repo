@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
+import { Provider, connect } from 'react-redux';
 
 class Users extends Component {
   handlePress = () => {
@@ -11,9 +12,16 @@ class Users extends Component {
 
   render() {
     return (
-      <Text>Users page</Text>
+      <Text>{this.props.users.users}</Text>
     );
   }
 }
 
-export default Users;
+const mapStateToProps = (state) => {
+    return {
+        users:state
+    }
+}
+
+
+export default connect(mapStateToProps, null)(Users)

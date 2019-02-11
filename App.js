@@ -19,19 +19,32 @@ import reducer from './src/store/reducers/user';
 import UserList from './src/store/actions/saveUser'
 
 const store = createStore(reducer);
+store.dispatch(reducer({type:"SET_USER",payload:"text"}))
 
 //import Screens
 import LandingScreen from './src/screens/Landing';
 import Users from './src/screens/Users';
 
 //import store
-
-//import store from './src/store/configureStore';
+const createApp = (Mycomponent,...props) => {
+  return class App extends Component{
+    render(){
+      return(
+        <Provider store={store}>
+          <Mycomponent {...{
+              ...this.props,
+              ...props,
+            }} />
+        </Provider>
+        )
+    }
+  }
+}
 
 //Register Screens
 //export default () =>{
-Navigation.registerComponent("LandingScreen", (store) => LandingScreen,store,Provider);
-Navigation.registerComponent("Users", () => Users,store,Provider);
+Navigation.registerComponent("LandingScreen", () => createApp(LandingScreen),store,Provider);
+Navigation.registerComponent("Users", () => createApp(Users),store,Provider);
 
 Navigation.startTabBasedApp({
   tabs: [

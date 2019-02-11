@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Text, View,Button } from 'react-native';
 import InputComponent from '../components/InputComponent'
 import { Provider, connect } from 'react-redux';
+import InputButton from '../components/inputButton'
+import { Navigation } from 'react-native-navigation';
+import {SET_USER} from '../store/actions/actionTypes';
 
 class Landing extends Component {
   constructor(props){
@@ -9,13 +12,16 @@ class Landing extends Component {
     this.state = {
       inputFields:""
     }
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClick = this.handleClick.bind(this);
+    this.handlePress = this.handlePress.bind(this);
   }
-  handlePress = () => {
+  handlePress(){
     this.props.navigator.push({
       screen: 'Users',
       title: 'Users',
     });
+    //console.log("****",this.props.user.users.users);
+    //console.log("####",this.props)
   };
 
   handleClick(e){
@@ -25,7 +31,6 @@ class Landing extends Component {
 
   render() {
     return (
-      <Provider store={store}>
       <View>
         <Button
           title="Add Fields"
@@ -33,14 +38,22 @@ class Landing extends Component {
           onPress={this.handleClick}
          />
          {
-           this.state.inputFields === "clicked"?
-             <InputComponent/>
-             console.log(store)
+           this.state.inputFields === "clicked"?(
+             <View>
+               <InputComponent />
+               <Button
+                 title="Save user"
+                 onPress = {this.handlePress}
+               />
+
+             </View>
+           )
            :
            <Text>Press add to start</Text>
          }
+
+
       </View>
-      </Provider>
     );
   }
 }
@@ -48,9 +61,11 @@ class Landing extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        type: 'SET_USER'
+        users:state
     }
 }
+
+
 
 
 export default connect(mapStateToProps, null)(Landing)

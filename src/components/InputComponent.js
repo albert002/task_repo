@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text,View,TextInput,Button } from 'react-native';
 
+
 class InputComponent extends Component {
   render() {
     return (
@@ -11,10 +12,6 @@ class InputComponent extends Component {
          <TextInput
            placeholder="Enter your lastname"
           />
-          <Button
-          title="save user"
-          color="blue"
-           />
       </View>
     );
   }
