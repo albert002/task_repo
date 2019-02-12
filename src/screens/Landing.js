@@ -18,7 +18,7 @@ class Landing extends Component {
   handlePress(){
     this.props.navigator.push({
       screen: 'Users',
-      title: 'Users',
+      title: 'Users'
     });
     //console.log("****",this.props.user.users.users);
     //console.log("####",this.props)
@@ -40,7 +40,7 @@ class Landing extends Component {
          {
            this.state.inputFields === "clicked"?(
              <View>
-               <InputComponent />
+               <InputComponent/>
                <Button
                  title="Save user"
                  onPress = {this.handlePress}

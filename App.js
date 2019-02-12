@@ -12,14 +12,17 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider, connect } from 'react-redux';
-//import axios from 'axios';
-//import axiosMiddleware from 'redux-axios-middleware';
-
 import reducer from './src/store/reducers/user';
-import UserList from './src/store/actions/saveUser'
+// import UserList from './src/store/actions/saveUser';
+import thunk from 'redux-thunk';
+import action from './src/store/actions/saveUser'
 
 const store = createStore(reducer);
-store.dispatch(reducer({type:"SET_USER",payload:"text"}))
+
+//console.log("Action is this &&&&",action())
+store.dispatch(action())
+console.log("This is our store @@@",store.getState())
+
 
 //import Screens
 import LandingScreen from './src/screens/Landing';

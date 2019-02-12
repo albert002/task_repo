@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text ,View} from 'react-native';
 import { Provider, connect } from 'react-redux';
 
 class Users extends Component {
@@ -12,7 +12,10 @@ class Users extends Component {
 
   render() {
     return (
-      <Text>{this.props.users.users}</Text>
+      <View>
+        <Text>{this.props.users.users}</Text>
+        <Text>{this.props.users.users.name}</Text>
+      </View>
     );
   }
 }
