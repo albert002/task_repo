@@ -18,9 +18,7 @@ import thunk from 'redux-thunk';
 import action from './src/store/actions/saveUser'
 
 const store = createStore(reducer);
-
-//console.log("Action is this &&&&",action())
-store.dispatch(action())
+//store.dispatch(action)
 console.log("This is our store @@@",store.getState())
 
 

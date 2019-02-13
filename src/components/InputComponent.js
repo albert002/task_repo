@@ -5,16 +5,26 @@ import reducer from '../store/reducers/user';
 
 
 class InputComponent extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      username:"name",
+      lastname:"lastname"
+    }
+  }
+
   render() {
     return (
       <View>
         <TextInput
           placeholder="Enter your name"
+          onChangeText={(el) => this.setState({username: el})}
          />
          <TextInput
            placeholder="Enter your lastname"
+           onChangeText={(ln) => this.setState({lastname: ln})}
           />
-          <Text>{this.props.users.users}</Text>
+          <Button title="ADD" onPress={this.props.myFunc.bind(this,[this.state.username,this.state.lastname])}/>
       </View>
     );
   }

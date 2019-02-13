@@ -1,10 +1,10 @@
 import {SET_USER} from '../actions/actionTypes';
 
-export default function reducer(state = { users: ["test"] }, action) {
-  console.log('*****',action)
+export default function reducer(state = { users: [{name:"AAA",lastname:"BBB"}] }, action) {
   switch (action.type) {
     case SET_USER:
-      return { ...state, "payload"};
+    state.users.push({name:action.name,lastname:action.lastname})
+      return { ...state};
     default:
       return state;
   }

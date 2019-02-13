@@ -15,13 +15,13 @@ class Landing extends Component {
     this.handleClick = this.handleClick.bind(this);
     this.handlePress = this.handlePress.bind(this);
   }
-  handlePress(){
+  handlePress(data){
     this.props.navigator.push({
       screen: 'Users',
       title: 'Users'
     });
-    //console.log("****",this.props.user.users.users);
-    //console.log("####",this.props)
+    this.props.dispatch( { type:"SET_USER",name:data[0],lastname:data[1]})
+    //console.log(`This is  ${data[0]} and this is the ${data[1]}`)
   };
 
   handleClick(e){
@@ -40,12 +40,7 @@ class Landing extends Component {
          {
            this.state.inputFields === "clicked"?(
              <View>
-               <InputComponent/>
-               <Button
-                 title="Save user"
-                 onPress = {this.handlePress}
-               />
-
+               <InputComponent myFunc={this.handlePress}/>
              </View>
            )
            :

@@ -3,6 +3,9 @@ import { Text ,View} from 'react-native';
 import { Provider, connect } from 'react-redux';
 
 class Users extends Component {
+  constructor(props){
+    super(props);
+  }
   handlePress = () => {
     this.props.navigator.push({
       screen: 'LandingScreen',
@@ -13,8 +16,15 @@ class Users extends Component {
   render() {
     return (
       <View>
-        <Text>{this.props.users.users}</Text>
-        <Text>{this.props.users.users.name}</Text>
+        {
+          this.props.users.users.map((user)=>{
+            return(
+              <View>
+                <Text>{user.name + " " + user.lastname}</Text>
+              </View>
+            )
+          })
+        }
       </View>
     );
   }

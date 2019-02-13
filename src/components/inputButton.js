@@ -11,7 +11,6 @@ class InputButton extends Component{
 
   saveUser(e){
     e.preventDefault();
-    console.log("****",this.props.user.users.users);
     console.log("####",this.props)
   }
 
@@ -20,7 +19,6 @@ class InputButton extends Component{
       <Button
       title="save user"
       color="blue"
-      //onPress={this.saveUser}
        />
     )
   }

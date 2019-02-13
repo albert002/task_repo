@@ -1,8 +1,7 @@
-export default function action(){
-  return {
+const action = {
     type:"SET_USER",
     payload:{
-      newState:"New State"
-    }
+      newState:[]
   }
 }
+export default action;
