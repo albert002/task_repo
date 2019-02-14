@@ -8,6 +8,7 @@ class InputComponent extends Component {
   constructor(props){
     super(props);
     this.state = {
+      id:0,
       username:"name",
       lastname:"lastname"
     }
@@ -24,7 +25,7 @@ class InputComponent extends Component {
            placeholder="Enter your lastname"
            onChangeText={(ln) => this.setState({lastname: ln})}
           />
-          <Button title="ADD" onPress={this.props.myFunc.bind(this,[this.state.username,this.state.lastname])}/>
+          <Button title="ADD" onPress={this.props.myFunc.bind(this,[this.state.username,this.state.lastname,this.state.id])}/>
       </View>
     );
   }

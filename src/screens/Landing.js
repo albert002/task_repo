@@ -22,7 +22,7 @@ class Landing extends Component {
       title: 'Users'
     });
 
-    this.props.setuser({ name:data[0],lastname:data[1]})
+    this.props.setuser({ name:data[0],lastname:data[1],id:data[2]})
   };
 
   handleClick(e){
