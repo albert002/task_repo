@@ -17,10 +17,11 @@ class Users extends Component {
     return (
       <View>
         {
-          this.props.users.users.map((user)=>{
+          this.props.users.map((user)=>{
             return(
               <View>
-                <Text>{user.name + " " + user.lastname}</Text>
+                <Text key={user.id}>{user.name + " " + user.lastname}</Text>
+              //  <Button />
               </View>
             )
           })

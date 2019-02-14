@@ -4,6 +4,7 @@ import InputComponent from '../components/InputComponent'
 import { Provider, connect } from 'react-redux';
 import InputButton from '../components/inputButton'
 import { Navigation } from 'react-native-navigation';
+import setuser from '../store/actions/saveUser';
 import {SET_USER} from '../store/actions/actionTypes';
 
 class Landing extends Component {
@@ -20,8 +21,8 @@ class Landing extends Component {
       screen: 'Users',
       title: 'Users'
     });
-    this.props.dispatch( { type:"SET_USER",name:data[0],lastname:data[1]})
-    //console.log(`This is  ${data[0]} and this is the ${data[1]}`)
+
+    this.props.setuser({ name:data[0],lastname:data[1]})
   };
 
   handleClick(e){
@@ -60,7 +61,15 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    setuser: (a) => {
+      dispatch(setuser(a))
+    }
+  };
+};
 
 
 
-export default connect(mapStateToProps, null)(Landing)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)
