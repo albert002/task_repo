@@ -16,7 +16,6 @@ class Users extends Component {
     });
   };
   deleteUser(id){
-    console.log("deleting the id",id)
     this.props.deluser(id)
   }
 
@@ -28,7 +27,7 @@ class Users extends Component {
             return(
               <View>
                 <Text key={i}>{user.name + " " + user.lastname}</Text>
-                <DelButton myFunc={this.deleteUser} id={i}/>
+                <DelButton myFunc={this.deleteUser} id={user.id}/>
               </View>
             )
           })

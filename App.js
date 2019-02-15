@@ -17,10 +17,9 @@ import reducer from './src/store/reducers/user';
 import thunk from 'redux-thunk';
 import action from './src/store/actions/saveUser'
 
-const store = createStore(reducer);
+const store = createStore(reducer,applyMiddleware(thunk));
 //store.dispatch(action)
-console.log("This is our store @@@",store.getState())
-
+//console.log("This is our store @@@",store.getState())
 
 //import Screens
 import LandingScreen from './src/screens/Landing';

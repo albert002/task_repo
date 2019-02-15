@@ -25,7 +25,7 @@ class InputComponent extends Component {
            placeholder="Enter your lastname"
            onChangeText={(ln) => this.setState({lastname: ln})}
           />
-          <Button title="ADD" onPress={this.props.myFunc.bind(this,[this.state.username,this.state.lastname,this.state.id])}/>
+          <Button title="ADD" onPress={this.props.myFunc.bind(this,[this.state.username,this.state.lastname,this.state.id++])}/>
       </View>
     );
   }

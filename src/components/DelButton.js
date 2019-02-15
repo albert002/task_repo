@@ -23,12 +23,5 @@ const mapStateToProps = (state) => {
         users:state
     }
 }
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     a: () => {
-//       dispatch({type:"SET_USER"})
-//     }
-//   }
-// };
 
 export default connect(mapStateToProps, null)(deleteUser)

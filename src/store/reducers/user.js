@@ -13,11 +13,12 @@ export default function reducer(state = { user: {name:"AAA",lastname:"BBB"} }, a
       ]
       break;
       case DEL_USER:
-        console.log("DELETED user with id" , action.id);
-        console.log("user data\n",action.id,action.name,action.lastname)
+        console.log("Action id" , action.id);
         //check equality
-        //const newState = state.filter( action.id => action.id !== action.id );
-        return [...state];
+        let newState = state.filter((user) => {
+           return user.id !== action.id
+        });
+        return [...newState];
         break;
     default:
       return [...state];
